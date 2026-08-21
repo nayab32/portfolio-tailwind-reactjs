@@ -50,7 +50,7 @@ const Navbar = () => {
                     </a>
 
                     <a
-                        href="#project"
+                        href="#projects"
                         className="relative text-white/80 transition duration-300 hover:text-purple group"
                     >
                         <span>Project</span>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     </a>
 
                     <a onClick={()=>setShowMenu(!showMenu)}
-                        href="#project"
+                        href="#projects"
                         className="relative text-white/80 transition duration-300 hover:text-purple group"
                     >
                         <span>Project</span>

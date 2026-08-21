@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Projects } from "../assets/asset.js";
+import ProjectCard from "./ProjectCard.jsx";
+import { FaArrowRight } from "react-icons/fa";
 
 const Project = () => {
     return (
@@ -21,7 +24,27 @@ const Project = () => {
                 <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
                     A selection of my recent work
                 </p>
-              
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                    {Projects.map((project, index) => (
+                        <ProjectCard
+                            key={index}
+                            {...project}
+                        />
+                    ))}
+
+                </div>
+
+                <div className="text-center mt-12">
+                    <a
+                        href="#"
+                        className="inline-flex items-center gap-2 text-purple hover:text-white transition"
+                    >
+                        
+                    </a>
+                </div>
+
             </div>
         </motion.div>
     );

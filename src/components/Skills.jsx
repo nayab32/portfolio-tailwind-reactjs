@@ -55,21 +55,6 @@ const Skills = () => {
                                     {skill.description}
                                 </p>
 
-                                {/* Technology Tags */}
-                                <div className="flex flex-wrap gap-2">
-
-                                    {skill.tags.map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="px-3 py-1 bg-dark-400 rounded-full
-                                            text-sm text-gray-300"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-
-                                </div>
-
                             </motion.div>
                         );
                     })}
