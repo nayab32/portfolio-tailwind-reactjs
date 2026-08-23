@@ -120,7 +120,7 @@ export const workData = [
         company: "Encova",
         duration: "2026 - Present",
         description:
-            "Worked on frontend development using React, JavaScript and Tailwind CSS.",
+            "Worked on frontend development using Html, Css, React, JavaScript and Tailwind CSS.",
         technologies: ["React", "JavaScript", "Tailwind CSS"],
     },
 ];
