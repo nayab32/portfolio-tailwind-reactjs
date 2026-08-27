@@ -8,46 +8,98 @@ import {
     FaLinkedin
 } from "react-icons/fa6";
 
-const Contact = () => {
+const Contact = ({ darkMode }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.2 }}
             id="contact"
-            className="py-20 bg-dark-200"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.2 }}
+            className={`
+                w-full
+                min-h-screen
+                pt-10
+                pb-6
+                scroll-mt-[70px]
+                transition-colors
+                duration-300
+                ${
+                    darkMode
+                        ? "bg-gradient-to-r from-[#161310] via-[#1e1915] to-[#161310]"
+                        : "bg-gradient-to-r from-[#f8f5f0] via-[#ffffff] to-[#f8f5f0]"
+                }
+            `}
         >
-            <div className="container mx-auto px-6">
+
+            <div className="container mx-auto px-4">
 
                 {/* Heading */}
 
-                <h2 className="text-3xl font-bold text-center mb-4">
+                <h2
+                    className={`
+                        text-xl
+                        md:text-2xl
+                        font-bold
+                        text-center
+                        mb-2
+                        ${
+                            darkMode
+                                ? "text-white"
+                                : "text-[#161310]"
+                        }
+                    `}
+                >
                     Get In
-                    <span className="text-purple"> Touch</span>
+                    <span className="text-[#f0a83a]">
+                        {" "}Touch
+                    </span>
                 </h2>
 
-                <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                <p
+                    className={`
+                        text-center
+                        max-w-md
+                        mx-auto
+                        mb-7
+                        text-xs
+                        ${
+                            darkMode
+                                ? "text-[#a89a85]"
+                                : "text-[#75695d]"
+                        }
+                    `}
+                >
                     Have a project in mind or want to collaborate? Let's talk!
                 </p>
 
 
                 {/* Main Contact Section */}
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
                     {/* LEFT SIDE - FORM */}
 
                     <div>
 
-                        <form className="space-y-6">
+                        <form className="space-y-3">
 
                             {/* Name */}
 
                             <div>
+
                                 <label
                                     htmlFor="name"
-                                    className="block text-gray-300 mb-2"
+                                    className={`
+                                        block
+                                        mb-1
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#c9beb2]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
                                 >
                                     Your Name
                                 </label>
@@ -55,17 +107,41 @@ const Contact = () => {
                                 <input
                                     id="name"
                                     type="text"
-                                    className="w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
+                                    className={`
+                                        w-full
+                                        rounded-md
+                                        px-3
+                                        py-2
+                                        text-sm
+                                        outline-none
+                                        border
+                                        ${
+                                            darkMode
+                                                ? "bg-[#1e1915] border-[#2b241d] text-white"
+                                                : "bg-white border-[#ddd3c5] text-[#161310]"
+                                        }
+                                    `}
                                 />
+
                             </div>
 
 
                             {/* Email */}
 
                             <div>
+
                                 <label
                                     htmlFor="email"
-                                    className="block text-gray-300 mb-2"
+                                    className={`
+                                        block
+                                        mb-1
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#c9beb2]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
                                 >
                                     Email Address
                                 </label>
@@ -73,25 +149,65 @@ const Contact = () => {
                                 <input
                                     id="email"
                                     type="email"
-                                    className="w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
+                                    className={`
+                                        w-full
+                                        rounded-md
+                                        px-3
+                                        py-2
+                                        text-sm
+                                        outline-none
+                                        border
+                                        ${
+                                            darkMode
+                                                ? "bg-[#1e1915] border-[#2b241d] text-white"
+                                                : "bg-white border-[#ddd3c5] text-[#161310]"
+                                        }
+                                    `}
                                 />
+
                             </div>
 
 
                             {/* Message */}
 
                             <div>
+
                                 <label
                                     htmlFor="message"
-                                    className="block text-gray-300 mb-2"
+                                    className={`
+                                        block
+                                        mb-1
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#c9beb2]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
                                 >
                                     Your Message
                                 </label>
 
                                 <textarea
                                     id="message"
-                                    className="w-full h-40 bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none"
+                                    className={`
+                                        w-full
+                                        h-24
+                                        rounded-md
+                                        px-3
+                                        py-2
+                                        text-sm
+                                        outline-none
+                                        resize-none
+                                        border
+                                        ${
+                                            darkMode
+                                                ? "bg-[#1e1915] border-[#2b241d] text-white"
+                                                : "bg-white border-[#ddd3c5] text-[#161310]"
+                                        }
+                                    `}
                                 ></textarea>
+
                             </div>
 
 
@@ -99,7 +215,20 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="w-full px-6 py-3 bg-purple rounded-lg font-medium hover:bg-purple-700 transition duration-300 cursor-pointer"
+                                className="
+                                    w-full
+                                    px-4
+                                    py-2
+                                    bg-[#f0a83a]
+                                    text-[#161310]
+                                    rounded-md
+                                    text-sm
+                                    font-semibold
+                                    hover:bg-[#d99527]
+                                    transition
+                                    duration-300
+                                    cursor-pointer
+                                "
                             >
                                 Send
                             </button>
@@ -111,23 +240,42 @@ const Contact = () => {
 
                     {/* RIGHT SIDE - CONTACT INFORMATION */}
 
-                    <div className="flex flex-col justify-center">
-
+                    <div className="flex flex-col justify-center pl-4 lg:pl-8">
 
                         {/* Location */}
 
-                        <div className="flex items-start gap-4 mb-8">
+                        <div className="flex items-start gap-3 mb-6">
 
-                            <FaLocationDot className="text-white text-2xl mt-1" />
+                            <FaLocationDot className="text-[#f0a83a] text-lg mt-1" />
 
                             <div>
 
-                                <h3 className="text-lg font-semibold text-white mb-2">
+                                <h3
+                                    className={`
+                                        text-sm
+                                        font-semibold
+                                        mb-1
+                                        ${
+                                            darkMode
+                                                ? "text-white"
+                                                : "text-[#161310]"
+                                        }
+                                    `}
+                                >
                                     Location
                                 </h3>
 
-                                <p className="text-gray-400">
-                                    Your City, Pakistan
+                                <p
+                                    className={`
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#a89a85]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
+                                >
+                                    Peshawar, Pakistan
                                 </p>
 
                             </div>
@@ -137,18 +285,38 @@ const Contact = () => {
 
                         {/* Email */}
 
-                        <div className="flex items-start gap-4 mb-8">
+                        <div className="flex items-start gap-3 mb-6">
 
-                            <FaEnvelope className="text-white text-2xl mt-1" />
+                            <FaEnvelope className="text-[#f0a83a] text-lg mt-1" />
 
                             <div>
 
-                                <h3 className="text-lg font-semibold text-white mb-2">
+                                <h3
+                                    className={`
+                                        text-sm
+                                        font-semibold
+                                        mb-1
+                                        ${
+                                            darkMode
+                                                ? "text-white"
+                                                : "text-[#161310]"
+                                        }
+                                    `}
+                                >
                                     Email
                                 </h3>
 
-                                <p className="text-gray-400">
-                                    your-email@example.com
+                                <p
+                                    className={`
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#a89a85]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
+                                >
+                                    nayabiqra32@gmail.com
                                 </p>
 
                             </div>
@@ -158,17 +326,37 @@ const Contact = () => {
 
                         {/* Phone */}
 
-                        <div className="flex items-start gap-4 mb-10">
+                        <div className="flex items-start gap-3 mb-6">
 
-                            <FaPhone className="text-white text-2xl mt-1" />
+                            <FaPhone className="text-[#f0a83a] text-lg mt-1" />
 
                             <div>
 
-                                <h3 className="text-lg font-semibold text-white mb-2">
+                                <h3
+                                    className={`
+                                        text-sm
+                                        font-semibold
+                                        mb-1
+                                        ${
+                                            darkMode
+                                                ? "text-white"
+                                                : "text-[#161310]"
+                                        }
+                                    `}
+                                >
                                     Phone
                                 </h3>
 
-                                <p className="text-gray-400">
+                                <p
+                                    className={`
+                                        text-xs
+                                        ${
+                                            darkMode
+                                                ? "text-[#a89a85]"
+                                                : "text-[#75695d]"
+                                        }
+                                    `}
+                                >
                                     +92 300 1234567
                                 </p>
 
@@ -181,12 +369,22 @@ const Contact = () => {
 
                         <div>
 
-                            <h3 className="text-lg font-semibold text-white mb-5">
+                            <h3
+                                className={`
+                                    text-sm
+                                    font-semibold
+                                    mb-3
+                                    ${
+                                        darkMode
+                                            ? "text-white"
+                                            : "text-[#161310]"
+                                    }
+                                `}
+                            >
                                 Follow Me
                             </h3>
 
-                            <div className="flex gap-4">
-
+                            <div className="flex gap-3">
 
                                 {/* GitHub */}
 
@@ -194,9 +392,20 @@ const Contact = () => {
                                     href="https://github.com/nayab32"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center hover:bg-purple transition duration-300"
+                                    className="
+                                        w-9
+                                        h-9
+                                        rounded-full
+                                        bg-[#1e1915]
+                                        flex
+                                        items-center
+                                        justify-center
+                                        hover:bg-[#f0a83a]
+                                        transition
+                                        duration-300
+                                    "
                                 >
-                                    <FaGithub className="text-white text-xl" />
+                                    <FaGithub className="text-white text-base" />
                                 </a>
 
 
@@ -206,11 +415,21 @@ const Contact = () => {
                                     href="https://www.linkedin.com/in/iqra-nayyab-149341243/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-12 h-12 rounded-full bg-dark-300 flex items-center justify-center hover:bg-purple transition duration-300"
+                                    className="
+                                        w-9
+                                        h-9
+                                        rounded-full
+                                        bg-[#1e1915]
+                                        flex
+                                        items-center
+                                        justify-center
+                                        hover:bg-[#f0a83a]
+                                        transition
+                                        duration-300
+                                    "
                                 >
-                                    <FaLinkedin className="text-white text-xl" />
+                                    <FaLinkedin className="text-white text-base" />
                                 </a>
-
 
                             </div>
 

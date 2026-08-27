@@ -20,7 +20,7 @@
     border-right: 0.15cm solid #8B5cF6;
     white-space: nowrap;
     width: 0;
-    animation: typing 3s steps(20, end) forwards, blink-caret 0.75s step-end 4;
+    animation: typing 3s steps(20, end) forwards, blink-caret 0.75s step-end 4 ;
 }
 
 @keyframes typing {
@@ -54,4 +54,26 @@ html {
 
 body {
     overflow-x: hidden;
+}
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    width: 0;
+    animation: typing 5s steps(20) infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 20ch;
+    }
+
+    100% {
+        width: 0;
+    }
 }

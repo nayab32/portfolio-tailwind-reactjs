@@ -2,79 +2,188 @@ import React from "react";
 import { motion } from "framer-motion";
 import { workData } from "../assets/asset.js";
 
-const Work = () => {
+const Work = ({ darkMode }) => {
+
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.2 }}
             id="experience"
-            className="py-20 bg-dark-100"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.2 }}
+            className={`
+                w-full
+                min-h-screen
+                pt-20
+                pb-12
+                scroll-mt-[70px]
+                transition-colors
+                duration-300
+                ${
+                    darkMode
+                        ? "bg-gradient-to-r from-[#161310] via-[#1e1915] to-[#161310]"
+                        : "bg-gradient-to-r from-[#f8f5f0] via-[#ffffff] to-[#f8f5f0]"
+                }
+            `}
         >
+
             <div className="container mx-auto px-6">
 
-                <h2 className="text-3xl font-bold text-center mb-4">
-                    Work
-                    <span className="text-purple">Experience</span>
-                </h2>
+                {/* HEADING */}
 
-                <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-                    My professional journey so far
-                </p>
+                <div className="text-center mb-10">
 
-                <div className="max-w-3xl mx-auto">
-                    <div className="space-y-12">
+                    <h2
+                        className={`
+                            text-3xl
+                            md:text-4xl
+                            font-bold
+                            ${
+                                darkMode
+                                    ? "text-white"
+                                    : "text-[#161310]"
+                            }
+                        `}
+                    >
+                        My{" "}
+                        <span className="text-[#f0a83a]">
+                            Experience
+                        </span>
+                    </h2>
 
-                        {
-                            workData.map((data, index) => (
-                                <div
-                                    key={index}
-                                    className='relative pl-12 before:content-[""] before:absolute
-                                    before:left-0 before:top-0 before:w-[2px] before:h-full
-                                    before:bg-purple cursor-pointer hover:-translate-y-2 transition-all
-                                    duration-300'
+                    <p
+                        className={`
+                            mt-2
+                            ${
+                                darkMode
+                                    ? "text-[#a89a85]"
+                                    : "text-[#75695d]"
+                            }
+                        `}
+                    >
+                        My development journey and experience
+                    </p>
+
+                </div>
+
+
+                {/* EXPERIENCE */}
+
+                <div className="max-w-4xl mx-auto space-y-6">
+
+                    {workData.map((work, index) => (
+
+                        <motion.div
+                            key={index}
+                            initial={{
+                                opacity: 0,
+                                y: 20
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                delay: index * 0.1
+                            }}
+                            viewport={{
+                                once: false,
+                                amount: 0.2
+                            }}
+                            className={`
+                                rounded-xl
+                                p-6
+                                border
+                                transition-colors
+                                duration-300
+                                ${
+                                    darkMode
+                                        ? "bg-[#1e1915] border-[#2b241d]"
+                                        : "bg-[#f3eee7] border-[#ddd3c5]"
+                                }
+                            `}
+                        >
+
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+
+                                <h3
+                                    className={`
+                                        text-xl
+                                        font-bold
+                                        ${
+                                            darkMode
+                                                ? "text-white"
+                                                : "text-[#161310]"
+                                        }
+                                    `}
                                 >
+                                    {work.title}
+                                </h3>
 
-                                    {/* timeline */}
-                                    <div className="absolute left-[-0.75rem] top-0 w-6 h-6 rounded-full
-                                    bg-purple">
-                                    </div>
+                                <span className="text-[#f0a83a] text-sm font-semibold">
+                                    {work.duration}
+                                </span>
 
-                                    {/* box */}
-                                    <div className="bg-dark-300 rounded-2xl p-6">
+                            </div>
 
-                                        <div className="flex justify-between items-start mb-2">
 
-                                            <h3 className="text-xl font-semibold text-white">
-                                                {data.title}
-                                            </h3>
+                            <h4 className="text-[#f0a83a] text-sm font-semibold mb-3">
+                                {work.company}
+                            </h4>
 
-                                            <span className="px-3 py-1 bg-purple/20
-                                            text-purple rounded-full text-xs md:text-sm">
-                                                {data.date}
-                                            </span>
 
-                                        </div>
+                            <p
+                                className={`
+                                    text-sm
+                                    leading-6
+                                    mb-4
+                                    ${
+                                        darkMode
+                                            ? "text-[#a89a85]"
+                                            : "text-[#75695d]"
+                                    }
+                                `}
+                            >
+                                {work.description}
+                            </p>
 
-                                        <p className="text-purple mb-2">
-                                            {data.company}
-                                        </p>
 
-                                        <p className="text-gray-400">
-                                            {data.description}
-                                        </p>
+                            <div className="flex flex-wrap gap-2">
 
-                                    </div>
+                                {work.technologies.map(
+                                    (technology, techIndex) => (
 
-                                </div>
-                            ))
-                        }
+                                        <span
+                                            key={techIndex}
+                                            className={`
+                                                px-3
+                                                py-1
+                                                rounded-full
+                                                text-xs
+                                                ${
+                                                    darkMode
+                                                        ? "bg-[#161310] border border-[#2b241d] text-[#c9beb2]"
+                                                        : "bg-white border border-[#ddd3c5] text-[#75695d]"
+                                                }
+                                            `}
+                                        >
+                                            {technology}
+                                        </span>
 
-                    </div>
+                                    )
+                                )}
+
+                            </div>
+
+                        </motion.div>
+
+                    ))}
+
                 </div>
 
             </div>
+
         </motion.div>
     );
 };
